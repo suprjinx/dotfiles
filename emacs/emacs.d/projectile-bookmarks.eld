@@ -1,0 +1,1 @@
+("~/.emacs.d/" "~/Projects/customer_portal/" "/usr/local/" "~/Projects/clojure-koans/" "~/Projects/clojure-begin/" "~/Projects/lab_puppet/")

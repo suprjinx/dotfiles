@@ -36,14 +36,3 @@ for i in $BASEDIR/*; do
         ln -s $j $BASEFILE
     done
 done
-
-# Make a pass deleting stale links, if any
-for i in ~/.*; do
-    [ ! -h $i ] && continue
-
-    # We have a link: Is it stale? If so, delete it ...
-    if [ ! -f $i ]; then
-	echo "Deleting stale link: $i"
-	rm $i
-    fi
-done
