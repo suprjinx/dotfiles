@@ -3,10 +3,15 @@
 	     '("melpa" . "http://melpa.org/packages/") t)
 
 (package-initialize)
+
+
+(load "~/.emacs.d/functions.el")
 ;;(load "~/.emacs.d/helm.el")
 (load "~/.emacs.d/ivy.el")
-(load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/keymap.el")
+
+(setq packages '(coffee-mode json-mode json-reformat haml-mode yaml-mode rspec-mode crux magit gruvbox-theme idea-darkula-theme darktooth-theme))
+(apply #'ensure-package-installed packages)
 
 (delete-selection-mode 1)
 (defalias 'yes-or-no-p 'y-or-n-p)

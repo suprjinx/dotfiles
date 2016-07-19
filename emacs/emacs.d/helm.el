@@ -1,3 +1,4 @@
+(apply #'ensure-package-installed '(helm projectile helm-projectile))
 
 (projectile-global-mode)
 (helm-mode 1)
