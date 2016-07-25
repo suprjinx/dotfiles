@@ -14,6 +14,7 @@
 (apply #'ensure-package-installed packages)
 
 (delete-selection-mode 1)
+(setq visible-bell 1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (show-paren-mode t)
 
