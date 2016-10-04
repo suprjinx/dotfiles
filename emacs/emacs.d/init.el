@@ -10,7 +10,7 @@
 (load "~/.emacs.d/ivy.el")
 (load "~/.emacs.d/keymap.el")
 
-(setq packages '(coffee-mode json-mode json-reformat haml-mode yaml-mode rspec-mode crux magit gruvbox-theme idea-darkula-theme darktooth-theme))
+(setq packages '(coffee-mode json-mode json-reformat haml-mode yaml-mode rspec-mode inf-ruby magit gruvbox-theme idea-darkula-theme darktooth-theme cider))
 (apply #'ensure-package-installed packages)
 
 (delete-selection-mode 1)
@@ -36,17 +36,4 @@
 (setq linum-format "%3d ")
 ;;(global-linum-mode t)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("d09467d742f713443c7699a546c0300db1a75fed347e09e3f178ab2f3aa2c617" "57d7e8b7b7e0a22dc07357f0c30d18b33ffcbb7bcd9013ab2c9f70748cfa4838" "badc4f9ae3ee82a5ca711f3fd48c3f49ebe20e6303bba1912d4e2d19dd60ec98" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
