@@ -10,7 +10,7 @@
 (load "~/.emacs.d/ivy.el")
 (load "~/.emacs.d/keymap.el")
 
-(setq packages '(coffee-mode json-mode json-reformat haml-mode yaml-mode rspec-mode inf-ruby magit gruvbox-theme idea-darkula-theme darktooth-theme cider))
+(setq packages '(coffee-mode json-mode json-reformat haml-mode yaml-mode rspec-mode inf-ruby magit gruvbox-theme idea-darkula-theme darktooth-theme cider ag))
 (apply #'ensure-package-installed packages)
 
 (delete-selection-mode 1)
@@ -34,6 +34,7 @@
 (setq wdired-allow-to-change-permissions "t")
 ;;(setq linum-format "%3d \u2503 ")
 (setq linum-format "%3d ")
+(setq column-number-mode t)
 ;;(global-linum-mode t)
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
