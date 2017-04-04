@@ -35,6 +35,10 @@
 ;;(setq linum-format "%3d \u2503 ")
 (setq linum-format "%3d ")
 (setq column-number-mode t)
+;; more readable :)
+(when (display-graphic-p)
+  (set-frame-font "Monaco 14" nil t)
+  (menu-bar-mode 1))
 ;;(global-linum-mode t)
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
