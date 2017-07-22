@@ -28,20 +28,18 @@
 	(while (< (point) end)
 	  (join-line 1)))))
 
-
-
 (defun yank-pop-forwards (arg)
   (interactive "p")
   (yank-pop (- arg)))
 
 (defun ensure-package-installed (&rest packages)
-    "Assure every package is installed, ask for installation if it’s not.
+  "Assure every package is installed, ask for installation if it’s not.
     Return a list of installed packages or nil for every skipped package."
-    (mapcar
-     (lambda (package)
-       ;; (package-installed-p 'evil)
-       (if (package-installed-p package)
-	   nil
-	 (package-install package)
-	   ))
-	packages))
+  (mapcar
+   (lambda (package)
+     ;; (package-installed-p 'evil)
+     (if (package-installed-p package)
+	 nil
+       (package-install package)
+       ))
+   packages))

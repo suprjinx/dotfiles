@@ -6,13 +6,13 @@
 
 
 (load "~/.emacs.d/functions.el")
-;;(load "~/.emacs.d/packages.el")
+(load "~/.emacs.d/packages.el")
 (load "~/.emacs.d/keymap.el")
 ;;(load "~/.emacs.d/helm.el")
 (load "~/.emacs.d/ivy.el")
 
-(setq packages '(coffee-mode json-mode json-reformat haml-mode yaml-mode rspec-mode inf-ruby ruby-tools magit gruvbox-theme idea-darkula-theme darktooth-theme cider ag restclient))
-(apply #'ensure-package-installed packages)
+;; (setq packages '(coffee-mode json-mode json-reformat haml-mode yaml-mode rspec-mode inf-ruby ruby-tools magit gruvbox-theme idea-darkula-theme darktooth-theme cider ag restclient))
+;; (apply #'ensure-package-installed packages)
 
 (delete-selection-mode 1)
 (setq visible-bell 1)
