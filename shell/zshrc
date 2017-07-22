@@ -53,12 +53,13 @@ DISABLE_AUTO_UPDATE="true"
 
 # User configuration
 
-export PATH="/Users/gewilson/.rbenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gewilson/Scripts"
+export PATH="$HOME/.rbenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/Scripts:$HOME/.go/bin"
 setopt auto_cd
 cdpath=($HOME/Projects;$HOME/Projects/customer_portal)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
+export GOPATH=~/.go
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
