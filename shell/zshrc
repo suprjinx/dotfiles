@@ -1,10 +1,23 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+#
+# User configuration sourced by interactive shells
+#
+
+# Change default zim location
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
+# Help zim get the right zsh version
+export ZSH_VERSION=5.4
+
+# Source zim
+if [[ -s ${ZIM_HOME}/init.zsh ]]; then
+  source ${ZIM_HOME}/init.zsh
 fi
 
 setopt auto_cd
 cdpath=($HOME/Projects;$HOME/Projects/customer_portal)
+autoload -Uz promptinit
+promptinit
+prompt liquidprompt
 
 # source config
 source $HOME/.env.sh

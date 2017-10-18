@@ -1,6 +1,6 @@
 # User configuration
 
-export PATH="$HOME/.rbenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/Scripts:$HOME/.go/bin"
+export PATH="$HOME/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/Scripts:$HOME/.go/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -22,12 +22,12 @@ source "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-export EDITOR=emacs
-if [ -n "$INSIDE_EMACS" ]; then
-  export EDITOR=emacsclient
-  unset zle_bracketed_paste  # This line
-fi
+export TERM=xterm-256color
+export EDITOR=emacs-nw
+# if [ -n "$INSIDE_EMACS" ]; then
+#   export EDITOR=emacsclient
+#   unset zle_bracketed_paste  # This line
+# fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -41,6 +41,7 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias routes="spring rake routes | grep"
 alias rc="spring rails c"
 alias spec="spring rspec spec --tag ~type:feature"
-alias emacs="/usr/local/Cellar/emacs/25.1/Emacs.app/Contents/MacOS/Emacs -nw"
+alias emacs="/usr/local/Cellar/emacs/25.1/Emacs.app/Contents/MacOS/Emacs"
+alias em="/usr/local/Cellar/emacs/25.1/Emacs.app/Contents/MacOS/Emacs -nw"
 alias lpcp="lpass ls | percol | grep -oE \"[0-9]+\" | xargs lpass show -cp"
 alias lps="lpass ls | percol | grep -oE \"[0-9]+\" | xargs lpass show"
