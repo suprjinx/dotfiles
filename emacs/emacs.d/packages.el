@@ -14,9 +14,12 @@
 (use-package rspec-mode :defer t :ensure t)
 (use-package inf-ruby :defer t :ensure t)
 (use-package ruby-tools :defer t :ensure t)
+(use-package smartparens :defer t :ensure t)
 (use-package magit :defer t :ensure t)
 (use-package cider :defer t :ensure t)
-(use-package ag  :defer t :ensure t)
+(use-package ag :defer t :ensure t)
+(use-package wgrep :defer t :ensure t)
+(use-package wgrep-ag :defer t :ensure t)
 (use-package restclient :defer t :ensure t)
 
 (use-package gruvbox-theme :defer t :ensure t)

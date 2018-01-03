@@ -43,3 +43,8 @@
        (package-install package)
        ))
    packages))
+
+(eval-after-load "rspec-mode"
+  '(defun rspec-spring-p()
+     "Always use spring"
+     t))
