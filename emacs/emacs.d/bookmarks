@@ -1,0 +1,20 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("org"
+ (filename . "~/Dropbox/org/")
+ (front-context-string . "personal.org\n  -")
+ (rear-context-string . "84 Feb 10 19:52 ")
+ (position . 267))
+("customer_portal"
+ (filename . "~/Projects/customer_portal/")
+ (front-context-string . ".DS_Store\n  drwx")
+ (rear-context-string . "48 Feb  9 17:18 ")
+ (position . 284))
+("emacs.d"
+ (filename . "~/Projects/dotfiles/emacs/emacs.d/")
+ (front-context-string . ".projectile\n  -r")
+ (rear-context-string . "22 Jan  3 10:50 ")
+ (position . 297))
+)

@@ -10,6 +10,7 @@
 (load "~/.emacs.d/keymap.el")
 ;;(load "~/.emacs.d/helm.el")
 (load "~/.emacs.d/ivy.el")
+(load "~/.emacs.d/org.el")
 
 ;; (setq packages '(coffee-mode json-mode json-reformat haml-mode yaml-mode rspec-mode inf-ruby ruby-tools magit gruvbox-theme idea-darkula-theme darktooth-theme cider ag restclient))
 ;; (apply #'ensure-package-installed packages)
@@ -60,7 +61,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/Dropbox/org")))
+ 
  '(package-selected-packages
    (quote
     (wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag))))
