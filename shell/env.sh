@@ -23,7 +23,8 @@ source "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 export TERM=xterm-256color
-export EDITOR=emacs-nw
+export ALTERNATE_EDITOR=""
+export EDITOR="emacsclient -nw"
 # if [ -n "$INSIDE_EMACS" ]; then
 #   export EDITOR=emacsclient
 #   unset zle_bracketed_paste  # This line
@@ -41,8 +42,7 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias routes="spring rake routes | grep"
 alias rc="spring rails c"
 alias spec="spring rspec spec --tag ~type:feature"
-alias em="/usr/local/Cellar/emacs/25.1/Emacs.app/Contents/MacOS/Emacs -nw"
-alias emacs="/usr/local/Cellar/emacs/25.1/Emacs.app/Contents/MacOS/Emacs"
+alias em="emacsclient -nw"
 alias lpcp="lpass ls | percol | grep -oE \"[0-9]+\" | xargs lpass show -cp"
 alias lps="lpass ls | percol | grep -oE \"[0-9]+\" | xargs lpass show"
 alias jtake="jira sprint active -b 26 --assignee allusers | percol | grep -oE \"FCP-[0-9]+\" | xargs -I@ bash -c \"jira issue assign @ gewilson; jira issue trans @ start\""

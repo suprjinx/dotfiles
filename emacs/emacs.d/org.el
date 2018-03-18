@@ -1,6 +1,7 @@
+(setq org-directory "~/Dropbox/org")
+(setq org-default-notes-file (concat org-directory "/capture.org"))
 (setq org-agenda-files '("~/Dropbox/org"))
 (setq org-refile-targets (quote (("~/Dropbox/org/personal.org" :level . 1)
                                  ("~/Dropbox/org/work.org" :level . 1))))
-(setq org-directory "~/Dropbox/org")
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 (setq org-mobile-inbox-for-pull "~/Dropbox/Apps/MobileOrg/index.org")
