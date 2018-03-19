@@ -28,9 +28,24 @@
 	(while (< (point) end)
 	  (join-line 1)))))
 
+;; clipboard / kill-ring
 (defun yank-pop-forwards (arg)
   (interactive "p")
   (yank-pop (- arg)))
+
+(defun pbcopy ()
+  (interactive)
+  (let ((deactivate-mark t))
+    (call-process-region (point) (mark) "pbcopy")))
+
+(defun pbpaste ()
+  (interactive)
+  (call-process-region (point) (if mark-active (mark) (point)) "pbpaste" t t))
+
+(defun pbcut ()
+  (interactive)
+  (pbcopy)
+  (delete-region (region-beginning) (region-end)))
 
 (defun ensure-package-installed (&rest packages)
   "Assure every package is installed, ask for installation if it’s not.
