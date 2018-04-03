@@ -11,6 +11,7 @@
 (use-package json-reformat :defer t :ensure t)
 (use-package haml-mode :defer t :ensure t)
 (use-package yaml-mode :defer t :ensure t)
+(use-package markdown-mode :defer t :ensure t)
 (use-package rspec-mode :defer t :ensure t)
 (use-package inf-ruby :defer t :ensure t)
 (use-package ruby-tools :defer t :ensure t)

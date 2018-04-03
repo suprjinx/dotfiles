@@ -4,8 +4,7 @@ alias console="zeus c"
 alias db_migrate="zeus rake db:migrate"
 alias db_test="zeus rake db:test:prepare"
 alias spec="zeus test spec --tag ~type:feature"
-alias ctags="`brew --prefix`/bin/ctags"
-alias ctag_index="ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)"
+
 
 export PGDATA="/usr/local/var/postgres"
 
