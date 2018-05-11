@@ -5,7 +5,7 @@ export PATH="$HOME/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HO
 # export MANPATH="/usr/local/man:$MANPATH"
 
 export GOPATH=~/.go
-source "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
+#source "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
