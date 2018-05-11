@@ -90,6 +90,10 @@
                 ,(rx (or "#" "=begin"))                        ; Comment start
                 ruby-forward-sexp nil)))
 
+(setq rspec-use-docker-when-possible t)
+(setq rspec-docker-command "sudo docker-compose exec")
+(setq rspec-docker-container "web")
+
 ;; (eval-after-load "rspec-mode"
 ;;   '(defun rspec-spring-p()
 ;;      "Always use spring"
