@@ -20,6 +20,8 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (show-paren-mode t)
 
+(setq ring-bell-function 'ignore)
+
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
@@ -36,6 +38,7 @@
 
 (menu-bar-mode -1)
 (global-auto-revert-mode t)
+(global-hl-line-mode 1)
 
 (setq wdired-allow-to-change-permissions "t")
 ;;(setq linum-format "%3d \u2503 ")
