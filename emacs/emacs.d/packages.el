@@ -6,6 +6,8 @@
 (require 'use-package)
 
 ;; packages
+(use-package docker :defer t :ensure t)
+(use-package docker-tramp :defer t :ensure t)
 (use-package coffee-mode :defer t :ensure t)
 (use-package json-mode :defer t :ensure t)
 (use-package json-reformat :defer t :ensure t)
@@ -19,6 +21,7 @@
 (use-package magit :defer t :ensure t)
 (use-package cider :defer t :ensure t)
 (use-package ag :defer t :ensure t)
+(use-package rg :defer t :ensure t)
 (use-package wgrep :defer t :ensure t)
 (use-package wgrep-ag :defer t :ensure t)
 (use-package restclient :defer t :ensure t)

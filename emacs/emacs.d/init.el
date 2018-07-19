@@ -28,6 +28,8 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 (setq js-indent-level 2)
 
+(setq rg-group-result 1)
+
 ;; desert, gruvbox, idea-darkula, darktooth, railscasts
 (load-theme 'railscasts t)
 (enable-theme 'railscasts)
@@ -66,7 +68,9 @@
 (setq-default abbrev-mode t)
 (setq rspec-use-docker-when-possible t)
 (setq rspec-docker-command "docker-compose exec")
-(setq rspec-docker-container "web")
+;;  (setq rspec-docker-container "web")
+(custom-set-variables '(coffee-tab-width 2))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -75,7 +79,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag))))
+    (docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
