@@ -9,6 +9,7 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
+(global-set-key (kbd "C-c f") 'org-cycle-agenda-files)
 
 
 ;; Bind (shift-right) and (shift-left) function to your favorite keys. I use
