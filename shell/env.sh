@@ -45,7 +45,7 @@ alias spec="spring rspec spec --tag ~type:feature"
 alias em="emacsclient -nw"
 alias lpcp="lpass ls | percol | grep -oE \"[0-9]+\" | xargs lpass show -cp"
 alias lps="lpass ls | percol | grep -oE \"[0-9]+\" | xargs lpass show"
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 alias zeus="docker-compose exec web zeus"
 
 alias jb="jira issue jql \"sprint in openSprints() and assignee='daveg' and status='Backlog'\""
