@@ -46,6 +46,7 @@ alias em="emacsclient -nw"
 alias lpcp="lpass ls | percol | grep -oE \"[0-9]+\" | xargs lpass show -cp"
 alias lps="lpass ls | percol | grep -oE \"[0-9]+\" | xargs lpass show"
 alias zeus="docker-compose exec web bundle exec zeus"
+eval "$(rbenv init -)"
 
 alias jb="jira issue jql \"sprint in openSprints() and assignee='daveg' and status='Backlog'\""
 alias jm="jira issue jql \"sprint in openSprints() and assignee='gewilson' and status='In\ Progress'\""
