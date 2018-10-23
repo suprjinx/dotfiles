@@ -1,6 +1,6 @@
 # User configuration
 
-export PATH="$HOME/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/Scripts:$HOME/.go/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/Scripts:$HOME/.go/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -45,8 +45,7 @@ alias spec="spring rspec spec --tag ~type:feature"
 alias em="emacsclient -nw"
 alias lpcp="lpass ls | percol | grep -oE \"[0-9]+\" | xargs lpass show -cp"
 alias lps="lpass ls | percol | grep -oE \"[0-9]+\" | xargs lpass show"
-eval "$(rbenv init -)"
-alias zeus="docker-compose exec web zeus"
+alias zeus="docker-compose exec web bundle exec zeus"
 
 alias jb="jira issue jql \"sprint in openSprints() and assignee='daveg' and status='Backlog'\""
 alias jm="jira issue jql \"sprint in openSprints() and assignee='gewilson' and status='In\ Progress'\""
