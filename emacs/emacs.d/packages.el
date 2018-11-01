@@ -25,6 +25,7 @@
 (use-package wgrep :defer t :ensure t)
 (use-package wgrep-ag :defer t :ensure t)
 (use-package restclient :defer t :ensure t)
+(use-package smex :defer t :ensure t)
 
 (use-package gruvbox-theme :defer t :ensure t)
 (use-package idea-darkula-theme :defer t :ensure t)

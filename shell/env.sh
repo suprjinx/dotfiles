@@ -1,6 +1,6 @@
 # User configuration
 
-export PATH="$HOME/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/Scripts:$HOME/.go/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/Scripts:$HOME/.go/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

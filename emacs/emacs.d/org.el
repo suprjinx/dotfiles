@@ -1,3 +1,4 @@
+(setq org-use-speed-commands 1)
 (setq org-directory "~/Dropbox/org")
 (setq org-default-notes-file (concat org-directory "/capture.org"))
 (setq org-agenda-files '("~/Dropbox/org"))
