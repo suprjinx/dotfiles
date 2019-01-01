@@ -6,6 +6,12 @@
 (require 'use-package)
 
 ;; packages
+
+(use-package auto-complete :defer t :ensure t)
+(use-package go-complete :defer t :ensure t)
+(use-package go-eldoc :defer t :ensure t)
+(use-package go-errcheck :defer t :ensure t)
+(use-package go-mode :defer t :ensure t)
 (use-package docker :defer t :ensure t)
 (use-package docker-tramp :defer t :ensure t)
 (use-package coffee-mode :defer t :ensure t)
