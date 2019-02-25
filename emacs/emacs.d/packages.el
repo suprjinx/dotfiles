@@ -7,6 +7,7 @@
 
 ;; packages
 
+(use-package go-test :defer t :ensure t)
 (use-package auto-complete :defer t :ensure t)
 (use-package go-complete :defer t :ensure t)
 (use-package go-eldoc :defer t :ensure t)
