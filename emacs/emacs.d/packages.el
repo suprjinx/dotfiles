@@ -6,8 +6,11 @@
 (require 'use-package)
 
 ;; packages
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
 
-(use-package go-test :defer t :ensure t)
 (use-package auto-complete :defer t :ensure t)
 (use-package go-complete :defer t :ensure t)
 (use-package go-eldoc :defer t :ensure t)
@@ -33,6 +36,8 @@
 (use-package wgrep-ag :defer t :ensure t)
 (use-package restclient :defer t :ensure t)
 (use-package smex :defer t :ensure t)
+(use-package dired-narrow :defer t :ensure t)
+(use-package dired-quick-sort :defer t :ensure t)
 
 (use-package gruvbox-theme :defer t :ensure t)
 (use-package idea-darkula-theme :defer t :ensure t)

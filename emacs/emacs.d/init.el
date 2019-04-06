@@ -11,9 +11,8 @@
 ;;(load "~/.emacs.d/helm.el")
 (load "~/.emacs.d/ivy.el")
 (load "~/.emacs.d/org.el")
+;;(load "~/.emacs.d/sunrise-commander.el")
 
-;; (setq packages '(coffee-mode json-mode json-reformat haml-mode yaml-mode rspec-mode inf-ruby ruby-tools magit gruvbox-theme idea-darkula-theme darktooth-theme cider ag restclient))
-;; (apply #'ensure-package-installed packages)
 
 (delete-selection-mode 1)
 (setq visible-bell 1)
@@ -90,7 +89,7 @@
  '(coffee-tab-width 2)
  '(package-selected-packages
    (quote
-    (gotest auto-complete go-complete go-eldoc go-errcheck go-mode smex docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag))))
+    (dired-quick-sort dired-narrow dashboard auto-complete go-complete go-eldoc go-errcheck go-mode smex docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag))))
 
 
 
