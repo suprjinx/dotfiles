@@ -11,9 +11,8 @@
 ;;(load "~/.emacs.d/helm.el")
 (load "~/.emacs.d/ivy.el")
 (load "~/.emacs.d/org.el")
+;;(load "~/.emacs.d/sunrise-commander.el")
 
-;; (setq packages '(coffee-mode json-mode json-reformat haml-mode yaml-mode rspec-mode inf-ruby ruby-tools magit gruvbox-theme idea-darkula-theme darktooth-theme cider ag restclient))
-;; (apply #'ensure-package-installed packages)
 
 (delete-selection-mode 1)
 (setq visible-bell 1)
@@ -71,7 +70,17 @@
 (setq-default abbrev-mode t)
 (setq rspec-use-docker-when-possible t)
 (setq rspec-docker-command "docker-compose exec")
-(setq rspec-docker-container "main_http")
+;;  (setq rspec-docker-container "web")
+
+(defun go-mode-setup ()
+ (setq compile-command "go build -v && go test -v && go vet")
+ (define-key (current-local-map) "\C-c\C-c" 'compile)
+ (go-eldoc-setup)
+ (setq gofmt-command "goimports")
+ (add-hook 'before-save-hook 'gofmt-before-save)
+ (local-set-key (kbd "M-.") 'godef-jump))
+(add-hook 'go-mode-hook 'go-mode-setup)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -82,10 +91,7 @@
  '(coffee-tab-width 2)
  '(package-selected-packages
    (quote
-    (dired-narrow smex docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag)))
- '(pdf-view-midnight-colors (quote ("#FDF4C1" . "#282828")))
- '(pos-tip-background-color "#36473A")
- '(pos-tip-foreground-color "#FFFFC8"))
+    (dired-quick-sort dired-narrow dashboard auto-complete go-complete go-eldoc go-errcheck go-mode smex docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag))))
 
 
 

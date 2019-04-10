@@ -20,4 +20,9 @@
 (global-set-key [C-S-right] 'shift-right)
 (global-set-key [C-S-left] 'shift-left)
 
-
+;; go-test functions to match ruby/rspec
+(define-key go-mode-map (kbd "C-c , v") 'go-test-current-file)
+(define-key go-mode-map (kbd "C-c , s") 'go-test-current-test)
+(define-key go-mode-map (kbd "C-c , p") 'go-test-current-project)
+(define-key go-mode-map (kbd "C-c , b") 'go-test-current-benchmark)
+(define-key go-mode-map (kbd "C-c C-c") 'go-run)

@@ -6,6 +6,16 @@
 (require 'use-package)
 
 ;; packages
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
+(use-package auto-complete :defer t :ensure t)
+(use-package go-complete :defer t :ensure t)
+(use-package go-eldoc :defer t :ensure t)
+(use-package go-errcheck :defer t :ensure t)
+(use-package go-mode :defer t :ensure t)
 (use-package docker :defer t :ensure t)
 (use-package docker-tramp :defer t :ensure t)
 (use-package coffee-mode :defer t :ensure t)
@@ -28,6 +38,7 @@
 (use-package smex :defer t :ensure t)
 (use-package ansi-color :defer t :ensure t)
 (use-package dired-narrow :defer t :ensure t)
+(use-package dired-quick-sort :defer t :ensure t)
 
 (use-package gruvbox-theme :defer t :ensure t)
 (use-package idea-darkula-theme :defer t :ensure t)
