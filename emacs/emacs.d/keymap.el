@@ -21,8 +21,16 @@
 (global-set-key [C-S-left] 'shift-left)
 
 ;; go-test functions to match ruby/rspec
-(define-key go-mode-map (kbd "C-c , v") 'go-test-current-file)
-(define-key go-mode-map (kbd "C-c , s") 'go-test-current-test)
-(define-key go-mode-map (kbd "C-c , p") 'go-test-current-project)
-(define-key go-mode-map (kbd "C-c , b") 'go-test-current-benchmark)
-(define-key go-mode-map (kbd "C-c C-c") 'go-run)
+(progn
+  (setq go-mode-map (make-sparse-keymap))
+  (define-key go-mode-map (kbd "C-c , v") 'go-test-current-file)
+  (define-key go-mode-map (kbd "C-c , s") 'go-test-current-test)
+  (define-key go-mode-map (kbd "C-c , p") 'go-test-current-project)
+  (define-key go-mode-map (kbd "C-c , b") 'go-test-current-benchmark)
+  (define-key go-mode-map (kbd "C-c C-c") 'go-run)
+  )
+
+(progn
+  (setq dired-mode-map (make-sparse-keymap))
+  (define-key dired-mode-map (kbd "C-x n") 'dired-narrow)
+  )

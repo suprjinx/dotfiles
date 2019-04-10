@@ -1,4 +1,6 @@
-(apply #'ensure-package-installed '(ivy counsel swiper))
+(use-package ivy :defer t :ensure t)
+(use-package counsel :defer t :ensure t)
+(use-package swiper :defer t :ensure t)
 
 (ivy-mode 1)
 

@@ -38,7 +38,7 @@
 (use-package smex :defer t :ensure t)
 (use-package ansi-color :defer t :ensure t)
 (use-package dired-narrow :defer t :ensure t)
-(use-package dired-quick-sort :defer t :ensure t)
+(use-package dired-quick-sort :defer t :ensure t :config (dired-quick-sort-setup))
 
 (use-package gruvbox-theme :defer t :ensure t)
 (use-package idea-darkula-theme :defer t :ensure t)

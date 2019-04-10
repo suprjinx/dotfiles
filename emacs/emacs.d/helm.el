@@ -1,4 +1,6 @@
-(apply #'ensure-package-installed '(helm projectile helm-projectile))
+(use-package helm :defer t :ensure t)
+(use-package projectile :defer t :ensure t)
+(use-package helm-projectile :defer t :ensure t)
 
 (projectile-global-mode)
 (helm-mode 1)
