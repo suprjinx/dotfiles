@@ -71,16 +71,21 @@
 (setq-default abbrev-mode t)
 (setq rspec-use-docker-when-possible t)
 (setq rspec-docker-command "docker-compose exec")
-;;  (setq rspec-docker-container "web")
+(setq rspec-docker-container "main_http")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
  '(coffee-tab-width 2)
  '(package-selected-packages
    (quote
-    (smex docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag))))
+    (dired-narrow smex docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag)))
+ '(pdf-view-midnight-colors (quote ("#FDF4C1" . "#282828")))
+ '(pos-tip-background-color "#36473A")
+ '(pos-tip-foreground-color "#FFFFC8"))
 
 
 
