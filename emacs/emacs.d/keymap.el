@@ -31,6 +31,8 @@
   )
 
 (progn
-  (setq dired-mode-map (make-sparse-keymap))
+  ;; modify dired keys
+  (require 'dired )
+  (define-key dired-mode-map (kbd "S") 'dired-quick-sort)
   (define-key dired-mode-map (kbd "C-x n") 'dired-narrow)
   )
