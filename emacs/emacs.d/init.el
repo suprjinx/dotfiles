@@ -51,7 +51,10 @@
   (setq default-frame-alist
         '((width . 160) (height . 48)))
   )
-;;(global-linum-mode t)
+
+(when (eq system-type 'darwin)
+  (require 'ls-lisp)
+  (setq ls-lisp-use-insert-directory-program nil))
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
