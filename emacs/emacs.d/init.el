@@ -1,12 +1,8 @@
-(require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/") t)
 
 (package-initialize)
 
-
-(load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/packages.el")
+(load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/keymap.el")
 ;;(load "~/.emacs.d/helm.el")
 (load "~/.emacs.d/ivy.el")
@@ -73,7 +69,7 @@
 (setq-default abbrev-mode t)
 (setq rspec-use-docker-when-possible t)
 (setq rspec-docker-command "docker-compose exec")
-;;  (setq rspec-docker-container "web")
+(setq rspec-docker-container "main_http")
 
 (defun go-mode-setup ()
  (setq compile-command "go build -v && go test -v && go vet")
@@ -94,7 +90,7 @@
  '(coffee-tab-width 2)
  '(package-selected-packages
    (quote
-    (dired-quick-sort dired-narrow smex docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag)))
+    (go-mode go-eldoc go-complete dashboard dired-quick-sort dired-narrow smex docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag)))
  '(pdf-view-midnight-colors (quote ("#FDF4C1" . "#282828")))
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8"))
