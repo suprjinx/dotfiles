@@ -27,9 +27,9 @@
 
 (setq rg-group-result 1)
 
-;; desert, gruvbox, idea-darkula, darktooth, railscasts
-(load-theme 'railscasts t)
-(enable-theme 'railscasts)
+;; desert, gruvbox, idea-darkula, darktooth, railscasts, moe-theme
+(load-theme 'moe-light t)
+(enable-theme 'moe-light)
 
 (menu-bar-mode -1)
 (global-auto-revert-mode t)
@@ -90,7 +90,7 @@
  '(coffee-tab-width 2)
  '(package-selected-packages
    (quote
-    (go-mode go-eldoc go-complete dashboard dired-quick-sort dired-narrow smex docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag)))
+    (moe-theme deadgrep go-mode go-eldoc go-complete dashboard dired-quick-sort dired-narrow smex docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag)))
  '(pdf-view-midnight-colors (quote ("#FDF4C1" . "#282828")))
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8"))
@@ -104,3 +104,4 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
