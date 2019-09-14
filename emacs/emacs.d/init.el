@@ -73,7 +73,7 @@
 (setq-default abbrev-mode t)
 (setq rspec-use-docker-when-possible t)
 (setq rspec-docker-command "docker-compose exec")
-;;  (setq rspec-docker-container "web")
+(setq rspec-docker-container "main_http")
 
 (defun go-mode-setup ()
  (setq compile-command "go build -v && go test -v && go vet")
@@ -108,3 +108,4 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
