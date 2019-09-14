@@ -1,3 +1,7 @@
+(require 'package)
+(add-to-list 'package-archives
+         '("melpa" . "http://melpa.org/packages/"))
+
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -44,3 +48,4 @@
 (use-package idea-darkula-theme :defer t :ensure t)
 (use-package darktooth-theme :defer t :ensure t)
 (use-package railscasts-theme :defer t :ensure t)
+(use-package moe-theme :defer t :ensure t)
