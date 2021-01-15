@@ -1,6 +1,6 @@
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/Scripts:$HOME/.go/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:$HOME/Scripts:$HOME/.go/bin:$HOME/Library/Python/2.7/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

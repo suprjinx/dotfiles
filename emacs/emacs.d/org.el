@@ -4,3 +4,5 @@
 (setq org-agenda-files '("~/Dropbox/org"))
 (setq org-refile-targets (quote (("~/Dropbox/org/personal.org" :level . 1)
                                  ("~/Dropbox/org/work.org" :level . 1))))
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))

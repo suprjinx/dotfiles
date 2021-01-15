@@ -28,8 +28,8 @@
 (setq rg-group-result 1)
 
 ;; desert, gruvbox, idea-darkula, darktooth, railscasts, moe-theme
-(load-theme 'moe-light t)
-(enable-theme 'moe-light)
+(load-theme 'gruvbox t)
+(enable-theme 'gruvbox)
 
 (menu-bar-mode -1)
 (global-auto-revert-mode t)
@@ -42,7 +42,9 @@
 ;; more readable :)
 (when (display-graphic-p)
   (set-frame-font "Monaco 14" nil t)
-  (menu-bar-mode 1)
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
   ;; Set Frame width/height
   (setq default-frame-alist
         '((width . 160) (height . 48)))
@@ -72,12 +74,11 @@
 (setq rspec-docker-container "main_http")
 
 (defun go-mode-setup ()
- (setq compile-command "go build -v && go test -v && go vet")
+ (setq compile-command "go build -v && go test && go vet")
  (define-key (current-local-map) "\C-c\C-c" 'compile)
  (go-eldoc-setup)
  (setq gofmt-command "goimports")
  (add-hook 'before-save-hook 'gofmt-before-save)
- (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'go-mode-setup)
 
 (custom-set-variables
@@ -90,7 +91,7 @@
  '(coffee-tab-width 2)
  '(package-selected-packages
    (quote
-    (moe-theme deadgrep go-mode go-eldoc go-complete dashboard dired-quick-sort dired-narrow smex docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag)))
+    (org-present org-tree-slide all-the-icons-dired all-the-icons org-bullets oer-reveal epresent moe-theme deadgrep go-mode go-eldoc go-complete dashboard dired-quick-sort dired-narrow smex docker docker-tramp wgrep-ag railscasts-reloaded-theme railscasts-theme markdown-mode markdown-preview-mode amx slime rainbow-blocks tango-dark restclient yasnippet yaml-mode swiper-helm ruby-electric rspec-mode powerline paredit neotree monokai-theme magit leuven-theme json-mode inf-ruby idea-darkula-theme hydandata-light-theme haml-mode gruvbox-theme git-gutter flx-ido diff-hl darktooth-theme crux counsel-projectile coffee-mode cider ag)))
  '(pdf-view-midnight-colors (quote ("#FDF4C1" . "#282828")))
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8"))
