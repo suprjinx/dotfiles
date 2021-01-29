@@ -64,6 +64,14 @@
   (pbcopy)
   (delete-region (region-beginning) (region-end)))
 
+
+(defun go-mode-setup ()
+ (setq compile-command "go build -v && go test && go vet")
+ (define-key (current-local-map) "\C-c\C-c" 'compile)
+ (go-eldoc-setup)
+ (setq gofmt-command "goimports")
+ (add-hook 'before-save-hook 'gofmt-before-save))
+
 (defun toggle-window-split ()
   (interactive)
   (if (= (count-windows) 2)
@@ -107,7 +115,7 @@
      compilation-filter-start (point))))
 
 (add-hook 'compilation-filter-hook
-          #'/colorize-compilation)
+          'colorize-compilation)
 
 ;; Open files in dired mode using 'open'
 (eval-after-load "dired"

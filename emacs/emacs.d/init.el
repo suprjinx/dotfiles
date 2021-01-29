@@ -72,13 +72,6 @@
 (setq rspec-use-docker-when-possible t)
 (setq rspec-docker-command "docker-compose exec")
 (setq rspec-docker-container "main_http")
-
-(defun go-mode-setup ()
- (setq compile-command "go build -v && go test && go vet")
- (define-key (current-local-map) "\C-c\C-c" 'compile)
- (go-eldoc-setup)
- (setq gofmt-command "goimports")
- (add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'go-mode-hook 'go-mode-setup)
 
 (custom-set-variables
