@@ -48,7 +48,14 @@
 (use-package railscasts-theme :defer t :ensure t)
 (use-package moe-theme :defer t :ensure t)
 
-;;(use-package eglot :defer t :ensure t)
+;; eglot lsp
+;; (use-package eglot
+;;   :defer t
+;;   :ensure t)
+
+;; (add-hook 'go-mode-hook 'eglot-ensure)
+
+;; lsp-mode
 (use-package lsp-mode
   :init
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
@@ -60,7 +67,7 @@
   :commands lsp)
 
 ;; optionally
-(use-package lsp-ui :commands lsp-ui-mode)
+;; (use-package lsp-ui :commands lsp-ui-mode)
 ;; if you are ivy user
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)

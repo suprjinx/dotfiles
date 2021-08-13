@@ -28,6 +28,9 @@
 
 (setq rg-group-result 1)
 
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+
 ;; desert, gruvbox, idea-darkula, darktooth, railscasts, moe-theme
 (load-theme 'gruvbox t)
 (enable-theme 'gruvbox)
