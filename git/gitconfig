@@ -34,3 +34,19 @@
 	cmd = /Applications/Meld.app/Contents/MacOS/meld-bin $LOCAL $REMOTE
 [difftool]
 	prompt = false
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org
+[url "git@github.com:"]
+	insteadOf = https://github.com
+[url "git@bitbucket.org:"]
+    insteadOf = https://bitbucket.org/
+[url "git@bitbucket.org:"]
+    insteadOf = https://api.bitbucket.org/
+[url "git@bitbucket.org:"]
+    insteadOf = https://bitbucket.org/
+[url "git@bitbucket.org:"]
+    insteadOf = https://api.bitbucket.org/
+[url "git@bitbucket.org:"]
+    insteadOf = https://bitbucket.org/
+[url "git@bitbucket.org:"]
+    insteadOf = https://api.bitbucket.org/
