@@ -68,10 +68,15 @@
 (defun go-mode-setup ()
  (setq compile-command "go build -v && go test && go vet")
  (define-key (current-local-map) "\C-c\C-c" 'compile)
- (go-eldoc-setup)
- (setq gofmt-command "goimports")
- (add-hook 'before-save-hook 'gofmt-before-save))
+ (defun lsp-go-install-save-hooks ()
+   (add-hook 'before-save-hook #'lsp-format-buffer t t)
+   (add-hook 'before-save-hook #'lsp-organize-imports t t))
+ (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
+ ;; Start LSP Mode and YASnippet mode
+ ;;(add-hook 'go-mode-hook #'eglot-ensure)
+ (add-hook 'go-mode-hook #'yas-minor-mode))
+ 
 (defun toggle-window-split ()
   (interactive)
   (if (= (count-windows) 2)

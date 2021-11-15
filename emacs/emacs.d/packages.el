@@ -15,10 +15,6 @@
   :config
   (dashboard-setup-startup-hook))
 
-(use-package auto-complete :defer t :ensure t)
-(use-package go-complete :defer t :ensure t)
-(use-package go-eldoc :defer t :ensure t)
-(use-package go-errcheck :defer t :ensure t)
 (use-package go-mode :defer t :ensure t)
 (use-package gotest :defer t :ensure t)
 (use-package lsp-mode :defer t :ensure t)
@@ -31,12 +27,12 @@
 (use-package haml-mode :defer t :ensure t)
 (use-package yaml-mode :defer t :ensure t)
 (use-package markdown-mode :defer t :ensure t)
+(use-package org-bullets :defer t :ensure t)
 (use-package rspec-mode :defer t :ensure t)
 (use-package inf-ruby :defer t :ensure t)
 (use-package ruby-tools :defer t :ensure t)
 (use-package smartparens :defer t :ensure t)
 (use-package magit :defer t :ensure t)
-(use-package cider :defer t :ensure t)
 (use-package ag :defer t :ensure t)
 (use-package rg :defer t :ensure t)
 (use-package wgrep :defer t :ensure t)
@@ -52,3 +48,36 @@
 (use-package darktooth-theme :defer t :ensure t)
 (use-package railscasts-theme :defer t :ensure t)
 (use-package moe-theme :defer t :ensure t)
+
+;; eglot lsp
+;; (use-package eglot
+;;   :defer t
+;;   :ensure t)
+
+;; (add-hook 'go-mode-hook 'eglot-ensure)
+
+;; lsp-mode
+(use-package lsp-mode
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+         (go-mode . lsp)
+         ;; if you want which-key integration
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
+;; optionally
+;; (use-package lsp-ui :commands lsp-ui-mode)
+;; if you are ivy user
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+;; optionally if you want to use debugger
+(use-package dap-mode)
+;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+
+;; optional if you want which-key integration
+(use-package which-key
+    :config
+    (which-key-mode))
