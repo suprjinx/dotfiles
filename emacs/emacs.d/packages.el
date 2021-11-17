@@ -19,6 +19,7 @@
 (use-package gotest :defer t :ensure t)
 (use-package lsp-mode :defer t :ensure t)
 (use-package company :defer t :ensure t)
+(use-package yasnippet :defer t :ensure t)
 (use-package docker :defer t :ensure t)
 (use-package docker-tramp :defer t :ensure t)
 (use-package coffee-mode :defer t :ensure t)
@@ -64,7 +65,8 @@
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          (go-mode . lsp)
          ;; if you want which-key integration
-         (lsp-mode . lsp-enable-which-key-integration))
+         ;; (lsp-mode . lsp-enable-which-key-integration)
+	 )
   :commands lsp)
 
 ;; optionally
@@ -74,10 +76,10 @@
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 ;; optionally if you want to use debugger
-(use-package dap-mode)
+;; (use-package dap-mode)
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 
 ;; optional if you want which-key integration
-(use-package which-key
-    :config
-    (which-key-mode))
+;; (use-package which-key
+;;    :config
+;;    (which-key-mode))

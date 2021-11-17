@@ -82,9 +82,6 @@
 (setq company-minimum-prefix-length 1)
 ;; Go mode
 (add-hook 'go-mode-hook 'go-mode-setup)
-(add-hook 'go-mode-hook 'lsp-deferred)
-
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
