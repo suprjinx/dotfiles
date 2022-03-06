@@ -1,0 +1,10 @@
+call plug#begin()
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'sebdah/vim-delve'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
+inoremap jk <ESC>
+let mapleader = ","
