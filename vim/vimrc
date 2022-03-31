@@ -1,22 +1,31 @@
 call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'sebdah/vim-delve'
-Plug 'srstevenson/vim-picker'
+Plug 'morhetz/gruvbox'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
+
+" gruvbox conf
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
 
 set incsearch
 set number
+set confirm         " confirm instead of requiring !
+set nobackup noswapfile
+set ignorecase smartcase smartindent smarttab
+set showmatch incsearch
+set hidden          " allow switch between buffers without saving
+set wildmenu        " better command-line completion
+
 inoremap jk <ESC>
+vnoremap jk <ESC>
 let mapleader = ","
 
-nmap <unique> <leader>pe <Plug>(PickerEdit)
-nmap <unique> <leader>ps <Plug>(PickerSplit)
-nmap <unique> <leader>pt <Plug>(PickerTabedit)
-nmap <unique> <leader>pd <Plug>(PickerTabdrop)
-nmap <unique> <leader>pv <Plug>(PickerVsplit)
-nmap <unique> <leader>pb <Plug>(PickerBuffer)
-nmap <unique> <leader>p] <Plug>(PickerTag)
-nmap <unique> <leader>pw <Plug>(PickerStag)
-nmap <unique> <leader>po <Plug>(PickerBufferTag)
-nmap <unique> <leader>ph <Plug>(PickerHelp)
-
+" Enable lsp for go by using gopls
+let g:completor_filetype_map = {}
+let g:completor_filetype_map.go = {'ft': 'lsp', 'cmd': 'gopls -remote=auto'}"
