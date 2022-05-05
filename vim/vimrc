@@ -26,8 +26,8 @@ set showmatch incsearch
 set hidden          " allow switch between buffers without saving
 set wildmenu        " better command-line completion
 
-inoremap jj <ESC>
-vnoremap jj <ESC>
+inoremap jk <ESC>
+vnoremap jk <ESC>
 let mapleader = "\<SPACE>"
 
 " LSP settings
