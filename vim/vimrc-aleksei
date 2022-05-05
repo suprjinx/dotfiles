@@ -1,0 +1,162 @@
+if !has("compatible")
+
+set encoding=utf8
+behave xterm        " xterm mouse behaviour
+set ruler           " show ruler
+set incsearch
+set number          " show line numbers
+set confirm         " confirm instead of requiring !
+set nobackup noswapfile
+set ignorecase smartcase smartindent smarttab
+set showmatch incsearch
+set hidden          " allow switch between buffers without saving
+set wildmenu        " better command-line completion
+set nomodeline      " disabled for security reasons
+set ff=unix         " unix EOLN
+set wrap            " prevent linebreaks
+set listchars=tab:>\ ,trail:\·,extends:#,nbsp:.
+set list            " show non-printable characters
+"set t_Co=16         " default to 16 colors
+set ts=4 sw=4 sts=4 et fo=rtcq
+set complete+=i
+
+set path+=**        " search files recursively in subfolders
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.so,*.o,*.obj,*.core,*.html,*/node_modules/*
+set foldmethod=indent foldminlines=4
+set clipboard=unnamed,unnamedplus
+set laststatus=2    " statusbar is always visible
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+"---------- mappings ----------
+noremap jk <ESC>
+let mapleader = ","
+
+
+command! TrimWhiteSpace %s/\s\+$//e
+command! ForceWrite     w !sudo tee % >/dev/null
+
+" ctags navitagion:
+"       ^]      - jump to a tag
+"       g^]     - list of all matching tags
+"       ^t      - back to original location
+
+" c-c to esc (works anyway but not quite the same)
+inoremap <c-c>   <esc>
+nnoremap <c-c>   <esc>
+inoremap <c-z>   <esc>:terminal<cr>
+nnoremap <c-z>   <esc>:terminal<cr>
+
+nnoremap <leader>ts     <esc>:TrimWhiteSpace<cr>
+
+" buffer navigation
+nnoremap <leader>b      <esc>:ls<cr>:buffer<space>
+nnoremap <leader>n      <esc>:bn<cr>
+nnoremap <leader>p      <esc>:bp<cr>
+nnoremap <leader>d      <esc>:bwipeout<cr>
+nnoremap <leader>g      <esc>:b<space>
+
+" Explorer
+nnoremap <leader>T      <esc>:Texplore<cr>
+nnoremap <leader>S      <esc>:Sexplore<cr>
+nnoremap <leader>w      <esc>:Vexplore<cr>
+
+" tab navigation
+nnoremap <leader>f      <esc>:tabfind<space>
+nnoremap <leader>tt     <esc>:tabnew<cr>
+nnoremap <tab>          <esc>gt  " same as :tabnext
+nnoremap <s-tab>        <esc>gT  " same as :tabprev
+nnoremap <c-l>          <esc>gt  " same as :tabnext
+nnoremap <c-h>          <esc>gT  " same as :tabprev
+
+nnoremap <leader>y      <esc>:set paste<cr>0p:set nopaste<cr>
+
+set diffopt+=vertical   " Always use vertical diffs
+
+" spellcheck: set spell to enable
+"             [s and ]s to navigate between errors
+"             z= - correction options
+
+cabbr vsf vertical sfind
+abbr teh the
+
+"---------- some style stuff ----------
+syntax on
+hi Normal guibg=black guifg=grey term=none gui=none
+hi Folded ctermbg=darkblue ctermfg=grey guibg=royalblue3 guifg=grey term=none cterm=none gui=none
+hi Visual ctermbg=grey ctermfg=black guibg=darkgrey guifg=black term=none cterm=none gui=none
+hi LineNr ctermfg=darkgrey guifg=grey35 term=none cterm=none gui=none
+hi MatchParen ctermfg=black ctermbg=yellow guifg=blue guibg=grey term=none cterm=none gui=none
+hi Pmenu ctermfg=white ctermbg=blue guifg=white guibg=grey62 term=none cterm=none
+hi PmenuSel ctermfg=black ctermbg=yellow guifg=black guibg=yellow term=none cterm=none
+hi WildMenu ctermfg=darkgrey ctermbg=black term=none cterm=reverse gui=none
+hi Search ctermfg=darkblue ctermbg=yellow guifg=darkblue guibg=yellow term=none cterm=none gui=none
+hi IncSearch ctermfg=darkblue ctermbg=yellow guifg=darkblue guibg=yellow term=none cterm=none gui=none
+hi SpellCap ctermfg=yellow ctermbg=black guifg=yellow guibg=black term=none cterm=none gui=none
+hi SpellBad ctermfg=red ctermbg=black guifg=red guibg=black term=none cterm=none gui=none
+hi SpellRare ctermfg=red ctermbg=black guifg=red guibg=black term=none cterm=none gui=none
+hi StatusLine ctermfg=black ctermbg=grey guifg=black guibg=grey term=none cterm=none gui=none
+hi Cursor guibg=green3 guifg=black
+
+hi Comment ctermfg=darkgrey guifg=grey50 cterm=none term=none gui=none
+hi SpecialKey ctermfg=236 guifg=grey35 cterm=none term=none gui=none
+hi Directory ctermfg=75 guifg=steelblue1 guibg=black cterm=none term=none gui=none
+hi link SpecialComment Comment
+
+" clearing syntax highlighting
+hi clear Normal
+hi clear Identifier
+hi clear Constant
+hi clear Special
+hi clear PreProc
+hi clear Statement
+hi clear Type
+hi clear ToDo
+hi clear SignColumn
+
+hi ExtraWhitespace ctermbg=red
+match ExtraWhitespace /\s\+$/
+
+silent! hi link rustDerive Comment
+silent! hi link rustDeriveTrait Comment
+silent! hi link rustAttribute Comment
+
+" option to add white syntax highlighting
+" hi Identifier ctermfg=white term=none cterm=none
+" hi Constant ctermfg=white term=none cterm=none
+" hi Special ctermfg=white term=none cterm=none
+" hi PreProc ctermfg=white term=none cterm=none
+" hi Statement ctermfg=white term=none cterm=none
+" hi Type ctermfg=white term=none cterm=none
+
+"---------- plugins ----------
+silent! source ~/.vimrc.plugins
+
+"---------- language ----------
+silent! source ~/.vimrc.language
+
+"---------- auxiliary file ----------
+silent! source ~/.vimrc.aux
+
+call plug#begin()
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'sebdah/vim-delve'
+Plug 'srstevenson/vim-picker'
+
+call plug#end()
+
+nmap <unique> <leader>pe <Plug>(PickerEdit)
+nmap <unique> <leader>ps <Plug>(PickerSplit)
+nmap <unique> <leader>pt <Plug>(PickerTabedit)
+nmap <unique> <leader>pd <Plug>(PickerTabdrop)
+nmap <unique> <leader>pv <Plug>(PickerVsplit)
+nmap <unique> <leader>pb <Plug>(PickerBuffer)
+nmap <unique> <leader>p] <Plug>(PickerTag)
+nmap <unique> <leader>pw <Plug>(PickerStag)
+nmap <unique> <leader>po <Plug>(PickerBufferTag)
+nmap <unique> <leader>ph <Plug>(PickerHelp)
+
+
+endif

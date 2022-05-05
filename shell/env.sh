@@ -1,6 +1,6 @@
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:$HOME/Scripts:$HOME/.go/bin:$HOME/Library/Python/2.7/bin"
+export PATH="/home/gewilson/bin:/home/gewilson/.gvm/pkgsets/go1.16/global/bin:/home/gewilson/.gvm/gos/go1.16/bin:/home/gewilson/.gvm/pkgsets/go1.16/global/overlay/bin:/home/gewilson/.gvm/bin:/home/gewilson/.gvm/bin:/home/gewilson/.gvm/pkgsets/go1.16/global/bin:/home/gewilson/.gvm/gos/go1.16/bin:/home/gewilson/.gvm/pkgsets/go1.16/global/overlay/bin:/home/gewilson/.gvm/bin:/home/gewilson/.gvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

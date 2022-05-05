@@ -1,11 +1,75 @@
 call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'sebdah/vim-delve'
+Plug 'morhetz/gruvbox'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'laher/fuzzymenu.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
+" gruvbox conf
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
+
+" General settings
+set incsearch
+set number
+set confirm         " confirm instead of requiring !
+set nobackup noswapfile
+set ignorecase smartcase smartindent smarttab
+set showmatch incsearch
+set hidden          " allow switch between buffers without saving
+set wildmenu        " better command-line completion
+
 inoremap jk <ESC>
-let mapleader = ","
+vnoremap jk <ESC>
+let mapleader = "\<SPACE>"
+
+" LSP settings
+let g:completor_filetype_map = {}
+let g:completor_filetype_map.go = {'ft': 'lsp', 'cmd': 'gopls -remote=auto'}
+
+" Gitgutter settings
+let g:gitgutter_override_sign_column_highlight = 1
+
+" Git key mappings
+nmap <Leader>gn <Plug>GitGutterNextHunk  " git next
+nmap <Leader>gp <Plug>GitGutterPrevHunk  " git previous
+nmap <Leader>gm :Magit<CR>
+
+" FZF settings
+" Let The :Files command show all files in the repo (including dotfiles)
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
+" Bind "//" to a fzf-powered buffer search
+nmap // :BLines!<CR>
+" Bind "??" to a fzf-powered project search
+nmap ?? :Rg!<CR>
+" Bind "<leader>p" to a fzf-powered filename search
+nmap <leader>p :Files!<CR>
+" Bind "cc" to a fzf-powered command search
+nmap cc :Commands!<CR>
+
+" NERDTree
+let NERDTreeShowHidden=1
+
+function! ToggleNERDTree()
+  NERDTreeToggle
+  " Set NERDTree instances to be mirrored
+  silent NERDTreeMirror
+endfunction
+
+" Bind "<leader>n" to toggle NERDTree
+nmap <leader>n :call ToggleNERDTree()<CR>
+
+" term settings
+noremap <leader>g :tab term ++close tig<CR>
+
+" term variants of the tab navigation bindings from above to make the
+" interactive command line tools easier to work with
+tmap <C-h> <C-w>:tabp<CR>
+tmap <C-l> <C-w>:tabn<CR>

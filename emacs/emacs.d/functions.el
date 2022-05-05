@@ -64,6 +64,14 @@
   (pbcopy)
   (delete-region (region-beginning) (region-end)))
 
+(defun shell-command-on-buffer ()
+  (interactive)
+  (let ((line (line-number-at-pos)))
+    ;; replace buffer with output of shell command
+    (shell-command-on-region (point-min) (point-max) (read-shell-command "Shell command on buffer: ") nil t)
+    ;; restore cursor position
+    (goto-line line)
+    (recenter-top-bottom)))
 
 (defun go-mode-setup ()
  (setq compile-command "go build -v && go test && go vet")
@@ -71,7 +79,7 @@
  (defun lsp-go-install-save-hooks ()
    (add-hook 'before-save-hook #'lsp-format-buffer t t)
    (add-hook 'before-save-hook #'lsp-organize-imports t t))
- (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+ ;;(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
  ;; Start LSP Mode and YASnippet mode
  ;;(add-hook 'go-mode-hook #'eglot-ensure)

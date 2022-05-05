@@ -6,7 +6,7 @@
 [core]
 	excludesfile = /Users/gewilson/.gitignore_global
 	autocrlf = input
-	editor = emacs
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
