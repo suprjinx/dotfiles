@@ -4,6 +4,8 @@ Plug 'sebdah/vim-delve'
 Plug 'morhetz/gruvbox'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -34,6 +36,10 @@ let mapleader = "\<SPACE>"
 " LSP settings
 let g:completor_filetype_map = {}
 let g:completor_filetype_map.go = {'ft': 'lsp', 'cmd': 'gopls -remote=auto'}
+
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 " Gitgutter settings
 let g:gitgutter_override_sign_column_highlight = 1
@@ -68,7 +74,7 @@ endfunction
 nmap <leader>n :call ToggleNERDTree()<CR>
 
 " term settings
-noremap <leader>g :tab term ++close tig<CR>
+noremap <leader>g :tab term ++close lazygit<CR>
 
 " term variants of the tab navigation bindings from above to make the
 " interactive command line tools easier to work with
