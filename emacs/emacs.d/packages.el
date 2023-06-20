@@ -17,7 +17,6 @@
 
 (use-package go-mode :defer t :ensure t)
 (use-package gotest :defer t :ensure t)
-(use-package lsp-mode :defer t :ensure t)
 (use-package company :defer t :ensure t)
 (use-package yasnippet :defer t :ensure t)
 (use-package docker :defer t :ensure t)
@@ -43,12 +42,21 @@
 (use-package org-bullets :defer t :ensure t)
 (use-package dired-narrow :defer t :ensure t)
 (use-package dired-quick-sort :defer t :ensure t :config (dired-quick-sort-setup))
+(use-package gptel
+  :defer t
+  :ensure t
+  :config
+ (setq gptel-api-key ""))
+
 
 (use-package gruvbox-theme :defer t :ensure t)
 (use-package idea-darkula-theme :defer t :ensure t)
 (use-package darktooth-theme :defer t :ensure t)
 (use-package railscasts-theme :defer t :ensure t)
 (use-package moe-theme :defer t :ensure t)
+(use-package kubel
+  :after (vterm)
+  :config (kubel-vterm-setup))
 
 ;; eglot lsp
 ;; (use-package eglot
@@ -64,6 +72,7 @@
   (setq lsp-keymap-prefix "C-c l")
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          (go-mode . lsp)
+	 (python-mode . lsp)
          ;; if you want which-key integration
          ;; (lsp-mode . lsp-enable-which-key-integration)
 	 )

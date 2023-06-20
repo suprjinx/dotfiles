@@ -1,11 +1,6 @@
 # User configuration
 
-export PATH="/home/gewilson/bin:/home/gewilson/.gvm/pkgsets/go1.16/global/bin:/home/gewilson/.gvm/gos/go1.16/bin:/home/gewilson/.gvm/pkgsets/go1.16/global/overlay/bin:/home/gewilson/.gvm/bin:/home/gewilson/.gvm/bin:/home/gewilson/.gvm/pkgsets/go1.16/global/bin:/home/gewilson/.gvm/gos/go1.16/bin:/home/gewilson/.gvm/pkgsets/go1.16/global/overlay/bin:/home/gewilson/.gvm/bin:/home/gewilson/.gvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-
 # export MANPATH="/usr/local/man:$MANPATH"
-
-export GOPATH=~/.go
-#source "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -24,7 +19,7 @@ export GOPATH=~/.go
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 export TERM=xterm-256color
 export ALTERNATE_EDITOR=""
-export EDITOR="emacsclient -nw"
+export EDITOR="emacs -nw"
 # if [ -n "$INSIDE_EMACS" ]; then
 #   export EDITOR=emacsclient
 #   unset zle_bracketed_paste  # This line
@@ -39,31 +34,4 @@ export EDITOR="emacsclient -nw"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias routes="spring rake routes | grep"
-alias rc="spring rails c"
-alias spec="spring rspec spec --tag ~type:feature"
-alias em="emacsclient -nw"
-alias lpcp="lpass ls | percol | grep -oE \"[0-9]+\" | xargs lpass show -cp"
-alias lps="lpass ls | percol | grep -oE \"[0-9]+\" | xargs lpass show"
-# eval "$(rbenv init -)"
-alias zeus="docker-compose exec main_http bundle exec zeus"
-
-alias jb="jira issue jql \"sprint in openSprints() and assignee='daveg' and status='Backlog'\""
-alias jm="jira issue jql \"sprint in openSprints() and assignee='gewilson' and status='In\ Progress'\""
-
-jkey () {
-    grep -oE "DEV-[0-9]+" $1
-}
-
-jopen () {
-    jira issue open $1
-}
-
-jtake () {
-    jira issue assign $1 gewilson
-    jira issue trans $1 start
-}
-
-jdeliver () {
-    jira issue trans $1 deliver
-}
+alias em="emacs -nw"
