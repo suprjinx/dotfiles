@@ -73,6 +73,10 @@
     (goto-line line)
     (recenter-top-bottom)))
 
+(defun timestamp ()
+   (interactive)
+   (insert (format-time-string "%Y-%m-%dT%H:%M:%S")))
+
 (defun go-mode-setup ()
  (setq compile-command "go build -v && go test && go vet")
  (define-key (current-local-map) "\C-c\C-c" 'compile)
