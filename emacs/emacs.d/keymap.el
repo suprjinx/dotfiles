@@ -34,10 +34,3 @@
   (define-key go-mode-map (kbd "C-c C-c") 'go-run)
   (define-key go-mode-map (kbd "M-.") 'lsp-find-definition)
   )
-
-(progn
-  ;; modify dired keys
-  (require 'dired )
-  (define-key dired-mode-map (kbd "S") 'dired-quick-sort)
-  (define-key dired-mode-map (kbd "C-x n") 'dired-narrow)
-  )

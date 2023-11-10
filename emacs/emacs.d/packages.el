@@ -42,12 +42,12 @@
 (use-package org-bullets :defer t :ensure t)
 (use-package dired-narrow :defer t :ensure t)
 (use-package dired-quick-sort :defer t :ensure t :config (dired-quick-sort-setup))
-(use-package gptel
-  :defer t
+(use-package chatgpt-shell
   :ensure t
-  :config
- (setq gptel-api-key ""))
-
+  :custom
+  ((chatgpt-shell-openai-key
+    (lambda ()
+      (auth-source-pass-get 'secret "KEYHERE")))))
 
 (use-package gruvbox-theme :defer t :ensure t)
 (use-package idea-darkula-theme :defer t :ensure t)
