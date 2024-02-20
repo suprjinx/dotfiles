@@ -78,7 +78,8 @@
    (insert (format-time-string "%Y-%m-%dT%H:%M:%S")))
 
 (defun go-mode-setup ()
- (setq compile-command "go build -v && go test && go vet")
+ (setq lsp-go-env '((GOFLAGS . "-tags=integration")))
+ (setq compile-command "CGO_ENABLED=1 go build -v -tags netgo,osusergo,sqlite_foreign_keys,sqlite_math_functions,sqlite_omit_load_extension,sqlite_unlock_notify,sqlite_vacuum_incr,integration && CGO_ENABLED=1 go test -tags integration")
  (define-key (current-local-map) "\C-c\C-c" 'compile)
  (defun lsp-go-install-save-hooks ()
    (add-hook 'before-save-hook #'lsp-format-buffer t t)
@@ -147,8 +148,16 @@
 (setq rspec-docker-command "sudo docker-compose exec")
 (setq rspec-docker-container "web")
 
-
 ;; (eval-after-load "rspec-mode"
 ;;   '(defun rspec-spring-p()
 ;;      "Always use spring"
 ;;      t))
+
+(defun ediff-copy-both-to-C ()
+  (interactive)
+  (ediff-copy-diff ediff-current-difference nil 'C nil
+                   (concat
+                    (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
+                    (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
+(defun add-d-to-ediff-mode-map () (define-key ediff-mode-map "d" 'ediff-copy-both-to-C))
+(add-hook 'ediff-keymap-setup-hook 'add-d-to-ediff-mode-map)
