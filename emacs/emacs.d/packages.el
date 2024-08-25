@@ -20,8 +20,6 @@
 (use-package company :defer t :ensure t)
 (use-package yasnippet :defer t :ensure t)
 (use-package docker :defer t :ensure t)
-(use-package docker-tramp :defer t :ensure t)
-(use-package coffee-mode :defer t :ensure t)
 (use-package json-mode :defer t :ensure t)
 (use-package json-reformat :defer t :ensure t)
 (use-package haml-mode :defer t :ensure t)
@@ -74,10 +72,17 @@
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          (go-mode . lsp)
 	 (python-mode . lsp)
+	 (ruby-mode . lsp)
          ;; if you want which-key integration
          ;; (lsp-mode . lsp-enable-which-key-integration)
 	 )
   :commands lsp)
+
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp-deferred))))
 
 ;; optionally
 ;; (use-package lsp-ui :commands lsp-ui-mode)
