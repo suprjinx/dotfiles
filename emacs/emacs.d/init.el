@@ -96,7 +96,11 @@
    [default default default italic underline success warning error])
  '(coffee-tab-width 2)
  '(custom-safe-themes
-   '("b89ae2d35d2e18e4286c8be8aaecb41022c1a306070f64a66fd114310ade88aa"
+   '("046a2b81d13afddae309930ef85d458c4f5d278a69448e5a5261a5c78598e012"
+     "573182354a59c672f89b8a7ea98ef020a54ff3fc93cf67bbfae4aa5bd41fdd5d"
+     "43cf3d1a792bfc1fb1965c36561327c8b59ac76760eeec621ce24b74136ec751"
+     "7b8f5bbdc7c316ee62f271acf6bcd0e0b8a272fdffe908f8c920b0ba34871d98"
+     "b89ae2d35d2e18e4286c8be8aaecb41022c1a306070f64a66fd114310ade88aa"
      "5a04c3d580e08f5fc8b3ead2ed66e2f0e5d93643542eec414f0836b971806ba9"
      "bf4b3dbc59b2b0873bd74ebf8f3a8c13d70dc3d36a4724b27edb1e427f047c1e"
      "939ea070fb0141cd035608b2baabc4bd50d8ecc86af8528df9d41f4d83664c6a"
@@ -104,14 +108,7 @@
      "aded61687237d1dff6325edb492bde536f40b048eab7246c61d5c6643c696b7f"
      default))
  '(highlight-indent-guides-character 124)
- '(package-selected-packages
-   '(ag chatgpt-shell coffee-mode company counsel darktooth-theme
-	dashboard dired-narrow dired-quick-sort docker docker-tramp
-	go-mode gotest gptel gruvbox-theme haml-mode
-	idea-darkula-theme inf-ruby json-mode json-reformat lsp-mode
-	magit markdown-mode moe-theme org-bullets railscasts-theme
-	restclient rg rspec-mode ruby-tools smartparens wgrep-ag
-	yaml-mode yasnippet))
+ '(package-selected-packages nil)
  '(pdf-view-midnight-colors '("#FDF4C1" . "#282828"))
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8"))
