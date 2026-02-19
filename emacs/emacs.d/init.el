@@ -5,8 +5,8 @@
 (load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/keymap.el")
 ;;(load "~/.emacs.d/helm.el")
-;;(load "~/.emacs.d/selectrum.el")
-(load "~/.emacs.d/ivy.el")
+;;(load "~/.emacs.d/ivy.el")
+(load "~/.emacs.d/vertico.el")
 (load "~/.emacs.d/org.el")
 ;;(load "~/.emacs.d/sunrise-commander.el")
 

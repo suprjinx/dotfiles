@@ -78,18 +78,9 @@
    (insert (format-time-string "%Y-%m-%dT%H:%M:%S")))
 
 (defun go-mode-setup ()
- (setq lsp-go-env '((GOFLAGS . "-tags=integration")))
  (setq compile-command "CGO_ENABLED=1 go build -v -tags netgo,osusergo,sqlite_foreign_keys,sqlite_math_functions,sqlite_omit_load_extension,sqlite_unlock_notify,sqlite_vacuum_incr,integration && CGO_ENABLED=1 go test -tags integration")
  (define-key (current-local-map) "\C-c\C-c" 'compile)
- (defun lsp-go-install-save-hooks ()
-   (add-hook 'before-save-hook #'lsp-format-buffer t t)
-   (add-hook 'before-save-hook #'lsp-organize-imports t t))
- ;;(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
-
- ;; Start LSP Mode and YASnippet mode
- ;;(add-hook 'go-mode-hook #'eglot-ensure)
- (add-hook 'go-mode-hook 'lsp-deferred)
- (add-hook 'go-mode-hook #'yas-minor-mode))
+ (yas-minor-mode))
  
 (defun toggle-window-split ()
   (interactive)

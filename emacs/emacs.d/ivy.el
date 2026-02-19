@@ -27,3 +27,6 @@
 (global-set-key (kbd "C-x l") 'counsel-locate)
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+
+;; LSP + ivy integration
+(use-package lsp-ivy :ensure t :commands lsp-ivy-workspace-symbol)

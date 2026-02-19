@@ -35,7 +35,9 @@
 (use-package rg :defer t :ensure t)
 (use-package wgrep :defer t :ensure t)
 (use-package wgrep-ag :defer t :ensure t)
-(use-package restclient :defer t :ensure t)
+(use-package restclient
+  :ensure t
+  :mode ("\\.http\\'" . restclient-mode))
 (use-package ansi-color :defer t :ensure t)
 (use-package org-bullets :defer t :ensure t)
 (use-package dired-narrow :defer t :ensure t)
@@ -65,30 +67,31 @@
 
 ;; lsp-mode
 (use-package lsp-mode
+  :ensure t
   :init
-  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
   (setq lsp-keymap-prefix "C-c l")
   (setq lsp-go-env '((GOFLAGS . "-tags=integration")))
-  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-         (go-mode . lsp)
-	 (python-mode . lsp)
-	 (ruby-mode . lsp)
-         ;; if you want which-key integration
-         ;; (lsp-mode . lsp-enable-which-key-integration)
-	 )
-  :commands lsp)
+  (setq lsp-gopls-server-args '("-remote=auto" "-remote.listen.timeout=1h"))
+  :hook ((go-mode . lsp-deferred)
+         (python-mode . lsp-deferred)
+         (ruby-mode . lsp-deferred))
+  :commands (lsp lsp-deferred))
+
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode
+  :hook (lsp-mode . lsp-ui-mode)
+  :config
+  (setq lsp-ui-doc-enable nil)
+  (setq lsp-ui-sideline-enable nil)
+  (setq lsp-ui-peek-enable nil))
 
 (use-package lsp-pyright
   :ensure t
   :hook (python-mode . (lambda ()
-                          (require 'lsp-pyright)
-                          (lsp-deferred))))
+                          (require 'lsp-pyright))))
 
-;; optionally
-;; (use-package lsp-ui :commands lsp-ui-mode)
-;; if you are ivy user
-(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+(use-package lsp-treemacs :ensure t :commands lsp-treemacs-errors-list)
 
 ;; optionally if you want to use debugger
 ;; (use-package dap-mode)

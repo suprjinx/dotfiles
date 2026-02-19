@@ -32,5 +32,4 @@
   (define-key go-mode-map (kbd "C-c , p") 'go-test-current-project)
   (define-key go-mode-map (kbd "C-c , b") 'go-test-current-benchmark)
   (define-key go-mode-map (kbd "C-c C-c") 'go-run)
-  (define-key go-mode-map (kbd "M-.") 'lsp-find-definition)
   )
