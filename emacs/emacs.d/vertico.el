@@ -27,7 +27,14 @@
                        (query-replace search
                                       (read-string (format "Replace \"%s\" with: " search)))))))
     (abort-recursive-edit))
-  (define-key vertico-map (kbd "M-q") #'consult-line-query-replace))
+  (define-key vertico-map (kbd "M-q") #'consult-line-query-replace)
+
+  ;; M-. inserts symbol at point into minibuffer (useful for consult-line)
+  (define-key vertico-map (kbd "M-.")
+    (lambda () (interactive)
+      (insert (or (with-minibuffer-selected-window
+                    (thing-at-point 'symbol))
+                  "")))))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
@@ -232,8 +239,7 @@
   ;; Make consult-line more swiper-like with better defaults
   (consult-customize
    consult-line :prompt "Swiper: "
-   :preview-key 'any
-   :initial (thing-at-point 'symbol))
+   :preview-key 'any)
   
   ;; Customize the display of line numbers in consult-line to match swiper
   (setq consult-fontify-preserve nil)
