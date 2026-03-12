@@ -10,11 +10,6 @@
 (require 'use-package)
 
 ;; packages
-(use-package dashboard
-  :ensure t
-  :config
-  (dashboard-setup-startup-hook))
-
 (use-package go-mode :defer t :ensure t)
 (use-package gotest :defer t :ensure t)
 (use-package company :defer t :ensure t)
