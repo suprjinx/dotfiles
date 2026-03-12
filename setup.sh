@@ -19,4 +19,4 @@ sudo apt install -y \
     stow
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-stow -v -t "$HOME" -d "$(dirname "$SCRIPT_DIR")" "$(basename "$SCRIPT_DIR")"
+stow -v -t "$HOME" -d "$SCRIPT_DIR" home
