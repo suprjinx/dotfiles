@@ -218,18 +218,6 @@
   ;; after lazily loading the package.
   :config
 
-  ;; Enable virtual buffers (show recent files like ivy-use-virtual-buffers)
-  ;; This makes consult-buffer show recent files like ivy does
-  (setq consult-buffer-sources
-        '(consult--source-hidden-buffer
-          consult--source-modified-buffer
-          consult--source-buffer
-          consult--source-recent-file  ;; Virtual buffers from recentf
-          consult--source-file-register
-          consult--source-bookmark
-          consult--source-project-buffer-hidden
-          consult--source-project-recent-file))
-
   ;; Configure consult-line to behave like swiper
   ;; Show line numbers in consult-line like swiper does
   (setq consult-line-numbers-widen t)

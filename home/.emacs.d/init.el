@@ -18,6 +18,7 @@
 (normal-erase-is-backspace-mode 0)
 
 (setq ring-bell-function 'ignore)
+(setq vc-follow-symlinks t)
 
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -41,9 +42,9 @@
 (global-hl-line-mode 1)
 
 (setq wdired-allow-to-change-permissions "t")
-;;(setq linum-format "%3d \u2503 ")
-(setq linum-format "%3d ")
 (setq column-number-mode t)
+;;(global-display-line-numbers-mode 1)
+
 ;; more readable :)
 (when (display-graphic-p)
   (set-frame-font "Monaco 14" nil t)
