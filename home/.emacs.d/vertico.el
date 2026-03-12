@@ -29,6 +29,9 @@
     (abort-recursive-edit))
   (define-key vertico-map (kbd "M-q") #'consult-line-query-replace)
 
+  ;; C-s advances to next candidate (swiper-like behavior)
+  (define-key vertico-map (kbd "C-s") #'vertico-next)
+
   ;; M-. inserts symbol at point into minibuffer (useful for consult-line)
   (define-key vertico-map (kbd "M-.")
     (lambda () (interactive)
