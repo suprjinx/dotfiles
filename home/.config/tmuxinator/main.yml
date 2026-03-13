@@ -1,7 +1,7 @@
-# /home/gewilson/.config/tmuxinator/job-manager.yml
+# /home/gwilson/.config/tmuxinator/main.yml
 
-name: job-manager
-root: ~/Projects/middleware/job-manager
+name: main
+root: ~/
 
 # Optional tmux socket
 # socket_name: foo
@@ -32,7 +32,7 @@ root: ~/Projects/middleware/job-manager
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
 
-# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# Change the command to call tmux. This can be used by derivatives/wrappers like byobu.
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
@@ -51,4 +51,7 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - emacs
+        - emacs .
+  - claude: claude      
+  - fish:
+  - htop: htop

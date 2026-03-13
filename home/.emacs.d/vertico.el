@@ -72,7 +72,7 @@
       (setq completion-styles '(orderless basic)
             completion-category-defaults nil
             completion-category-overrides '((file (styles partial-completion))))
-      (setq orderless-matching-styles '(orderless-literal orderless-regexp)))
+      (setq orderless-matching-styles '(orderless-literal orderless-regexp orderless-initialism)))
   (error
    ;; Fallback to built-in completion styles if orderless is not available
    (message "Orderless not available, using built-in completion styles")
@@ -140,7 +140,7 @@
   ;; Replace bindings to match ivy/counsel configuration
   :bind (;; Global bindings matching ivy/counsel
          ("C-s" . consult-line)                    ;; swiper replacement
-         ("C-x f" . consult-git-grep)              ;; counsel-git replacement
+         ("C-x f" . project-find-file)           ;; counsel-git replacement
          ("C-x C-f" . find-file)                   ;; Keep default find-file (vertico enhances it)
          ("<f1> f" . describe-function)            ;; counsel-describe-function replacement
          ("<f1> v" . describe-variable)            ;; counsel-describe-variable replacement

@@ -21,7 +21,8 @@ if [ -f /etc/debian_version ]; then
 	gh \
 	golang-go \
 	make \
-	htop
+	htop \
+	ruby
 fi
 
 # Docker (skip if Docker Desktop is providing the CLI)
@@ -36,6 +37,12 @@ fi
 if ! command -v dagger &> /dev/null; then
     curl -fsSL https://dl.dagger.io/dagger/install.sh | BIN_DIR=$HOME/.local/bin sh
 fi
+
+# Tmuxinator
+if ! command -v tmuxinator &> /dev/null; then
+    sudo gem install tmuxinator
+fi
+
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 stow -v --adopt -t "$HOME" -d "$SCRIPT_DIR" home
