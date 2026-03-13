@@ -52,5 +52,5 @@ windows:
       # synchronize: after
       panes:
         - emacs .
-    - claude: claude
-    - fish:
+  - claude: claude
+  - fish:
