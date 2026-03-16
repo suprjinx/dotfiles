@@ -1,0 +1,10 @@
+name: <%= @args[0] %>
+root: ~/work/<%= @args[0] %>
+
+windows:
+  - emacs:
+      layout: main-vertical
+      panes:
+        - emacs .
+  - claude: claude
+  - fish:
