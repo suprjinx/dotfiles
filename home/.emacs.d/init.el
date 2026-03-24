@@ -75,6 +75,12 @@
       "~/.emacs.d/abbrev_defs") 
 (setq save-abbrevs t)
 (setq-default abbrev-mode t)
+
+
+(with-eval-after-load 'magit
+    (transient-append-suffix 'magit-commit "-a"
+      '("-s" "Signoff" "--signoff"))
+    (setq transient-values '((magit-commit "--signoff"))))
 (setq rspec-use-docker-when-possible t)
 (setq rspec-docker-command "docker-compose exec")
 (setq rspec-docker-container "main_http")
