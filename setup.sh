@@ -1,7 +1,6 @@
 #! /bin/bash
 
 if [ -f /etc/debian_version ]; then
-    sudo add-apt-repository -y ppa:ubuntuhandbook1/emacs
     sudo add-apt-repository -y ppa:longsleep/golang-backports
     sudo apt update
 
@@ -27,7 +26,7 @@ fi
 
 # Docker (skip if Docker Desktop is providing the CLI)
 if ! command -v docker &> /dev/null; then
-    curl -fsSL https://get.docker.com | sh
+    sudo apt install docker.io
     sudo usermod -aG docker "$USER"
 elif docker info 2>&1 | grep -q "Docker Desktop"; then
     echo "Docker Desktop detected, skipping Docker Engine install"
@@ -43,6 +42,14 @@ if ! command -v tmuxinator &> /dev/null; then
     sudo gem install tmuxinator
 fi
 
+# Claude
+curl -fsSL https://claude.ai/install.sh | bash
 
+# Fish
+chsh -s $(which fish)
+
+# Install configs
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 stow -v --adopt -t "$HOME" -d "$SCRIPT_DIR" home
+
+
