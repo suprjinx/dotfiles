@@ -42,6 +42,11 @@ if ! command -v tmuxinator &> /dev/null; then
     sudo gem install tmuxinator
 fi
 
+# Go tools
+go install github.com/go-delve/delve/cmd/dlv@latest
+go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest
+go install golang.org/x/tools/gopls@latest
+
 # Claude
 curl -fsSL https://claude.ai/install.sh | bash
 
@@ -51,5 +56,4 @@ chsh -s $(which fish)
 # Install configs
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 stow -v --adopt -t "$HOME" -d "$SCRIPT_DIR" home
-
 

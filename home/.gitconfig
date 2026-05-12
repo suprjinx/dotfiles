@@ -36,8 +36,6 @@
 	prompt = false
 [url "git@bitbucket.org:"]
 	insteadOf = https://bitbucket.org
-[url "git@github.com:"]
-	insteadOf = https://github.com
 [url "git@bitbucket.org:"]
     insteadOf = https://bitbucket.org/
 [url "git@bitbucket.org:"]
@@ -50,3 +48,9 @@
     insteadOf = https://bitbucket.org/
 [url "git@bitbucket.org:"]
     insteadOf = https://api.bitbucket.org/
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
