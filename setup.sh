@@ -48,7 +48,9 @@ brew install \
     go \
     make \
     htop \
-    ruby
+    ruby \
+    mc \
+    mg
 
 # Docker (skip if Docker Desktop is providing the CLI)
 if ! command -v docker &> /dev/null; then
@@ -75,6 +77,9 @@ go install golang.org/x/tools/gopls@latest
 
 # Claude
 curl -fsSL https://claude.ai/install.sh | bash
+
+# Fresh editor
+curl https://raw.githubusercontent.com/sinelaw/fresh/refs/heads/master/scripts/install.sh | sh
 
 # Fish
 chsh -s $(which fish)
