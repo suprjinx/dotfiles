@@ -24,7 +24,7 @@ ensure_brew() {
     command -v brew &> /dev/null || { echo "brew install failed" >&2; exit 1; }
 }
 
-# Linux: install the minimum Homebrew needs before bootstrapping it.
+# Linux: install the minimum Homebrew needs before bootstrapping it
 if [ -f /etc/debian_version ]; then
     sudo apt-get update
     sudo apt-get install -y --no-install-recommends \
@@ -52,7 +52,7 @@ brew install \
 
 # Docker (skip if Docker Desktop is providing the CLI)
 if ! command -v docker &> /dev/null; then
-    curl -fsSL https://get.docker.com | sh
+    sudo apt install docker.io docker-compose-v2
     sudo usermod -aG docker "$USER"
 elif docker info 2>&1 | grep -q "Docker Desktop"; then
     echo "Docker Desktop detected, skipping Docker Engine install"
@@ -68,6 +68,18 @@ if ! command -v tmuxinator &> /dev/null; then
     gem install tmuxinator
 fi
 
+# Go tools
+go install github.com/go-delve/delve/cmd/dlv@latest
+go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest
+go install golang.org/x/tools/gopls@latest
 
+# Claude
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Fish
+chsh -s $(which fish)
+
+# Install configs
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 stow -v --adopt -t "$HOME" -d "$SCRIPT_DIR" home
+
