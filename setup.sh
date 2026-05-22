@@ -50,9 +50,13 @@ brew install \
     htop \
     ruby \
     mc \
-    mg
+    mg \
+    tmuxinator \
+    dagger \
+    fresh-editor \
+    claude-code
 
-# Docker (skip if Docker Desktop is providing the CLI)
+# Docker daemon (skip if Docker Desktop is providing the CLI)
 if ! command -v docker &> /dev/null; then
     sudo apt install docker.io docker-compose-v2
     sudo usermod -aG docker "$USER"
@@ -60,26 +64,10 @@ elif docker info 2>&1 | grep -q "Docker Desktop"; then
     echo "Docker Desktop detected, skipping Docker Engine install"
 fi
 
-# Dagger
-if ! command -v dagger &> /dev/null; then
-    curl -fsSL https://dl.dagger.io/dagger/install.sh | BIN_DIR=$HOME/.local/bin sh
-fi
-
-# Tmuxinator (via brew-installed ruby; no sudo needed)
-if ! command -v tmuxinator &> /dev/null; then
-    gem install tmuxinator
-fi
-
 # Go tools
 go install github.com/go-delve/delve/cmd/dlv@latest
 go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest
 go install golang.org/x/tools/gopls@latest
-
-# Claude
-curl -fsSL https://claude.ai/install.sh | bash
-
-# Fresh editor
-curl https://raw.githubusercontent.com/sinelaw/fresh/refs/heads/master/scripts/install.sh | sh
 
 # Fish
 chsh -s $(which fish)
