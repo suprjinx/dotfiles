@@ -1,13 +1,37 @@
+// Emacs / magit style key bindings for gitui.
+//
+// This file only *overrides* the actions listed below; every other key keeps
+// its gitui default. gitui's defaults are already magit-flavoured for command
+// verbs (c = commit, s = stage, u = unstage, d = diff, b = branches,
+// l = log, e = edit, P = push, F = fetch/pull), so here we mainly swap
+// navigation over to emacs motion keys.
+//
+// gitui 0.28 format: `modifiers` is a string of crossterm flag names,
+// e.g. "NONE", "CONTROL", "ALT", or combined "ALT | SHIFT".
 (
-    focus_right: Some(( code: Char('l'), modifiers: ( bits: 0,),)),
-    focus_left: Some(( code: Char('h'), modifiers: ( bits: 0,),)),
-    focus_above: Some(( code: Char('k'), modifiers: ( bits: 0,),)),
-    focus_below: Some(( code: Char('j'), modifiers: ( bits: 0,),)),
-    
-    move_left: Some(( code: Char('h'), modifiers: ( bits: 0,),)),
-    move_right: Some(( code: Char('l'), modifiers: ( bits: 0,),)),
-    move_up: Some(( code: Char('k'), modifiers: ( bits: 0,),)),
-    move_down: Some(( code: Char('j'), modifiers: ( bits: 0,),)),
+    // --- panel focus: C-b / C-f / C-p / C-n ---
+    focus_left:  Some(( code: Char('b'), modifiers: "CONTROL")),
+    focus_right: Some(( code: Char('f'), modifiers: "CONTROL")),
+    focus_above: Some(( code: Char('p'), modifiers: "CONTROL")),
+    focus_below: Some(( code: Char('n'), modifiers: "CONTROL")),
 
-    open_help: Some(( code: F(1), modifiers: ( bits: 0,),)),
+    // --- list / cursor motion: C-b / C-f / C-p / C-n ---
+    move_left:  Some(( code: Char('b'), modifiers: "CONTROL")),
+    move_right: Some(( code: Char('f'), modifiers: "CONTROL")),
+    move_up:    Some(( code: Char('p'), modifiers: "CONTROL")),
+    move_down:  Some(( code: Char('n'), modifiers: "CONTROL")),
+
+    // --- paging: C-v forward, M-v back ---
+    page_down: Some(( code: Char('v'), modifiers: "CONTROL")),
+    page_up:   Some(( code: Char('v'), modifiers: "ALT")),
+
+    // --- buffer ends: M-< and M-> ---
+    home: Some(( code: Char('<'), modifiers: "ALT")),
+    end:  Some(( code: Char('>'), modifiers: "ALT")),
+
+    // --- help: emacs-style C-h ---
+    open_help: Some(( code: Char('h'), modifiers: "CONTROL")),
+
+    // --- cancel / back out of popups: emacs C-g (replaces Esc here) ---
+    exit_popup: Some(( code: Char('g'), modifiers: "CONTROL")),
 )
