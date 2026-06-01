@@ -33,6 +33,12 @@
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 
+;; Keep Emacs responsive on files/diffs with very long lines (minified
+;; assets, lockfiles). Safe to leave on always; helps Magit too.
+(setq-default bidi-paragraph-direction 'left-to-right)
+(setq bidi-inhibit-bpa t)
+(global-so-long-mode 1)
+
 ;; desert, gruvbox, idea-darkula, darktooth, railscasts, moe-theme
 (load-theme 'gruvbox t)
 (enable-theme 'gruvbox)

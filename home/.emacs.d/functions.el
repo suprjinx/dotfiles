@@ -152,3 +152,68 @@
                     (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
 (defun add-d-to-ediff-mode-map () (define-key ediff-mode-map "d" 'ediff-copy-both-to-C))
 (add-hook 'ediff-keymap-setup-hook 'add-d-to-ediff-mode-map)
+
+;;; ---- Magit "quick" mode: lean rendering for huge diffs -------------------
+
+(defvar magit-quick--saved nil
+  "Saved Magit settings, restored when `magit-quick-mode' is turned off.")
+
+(defconst magit-quick--heavy-sections
+  '(magit-insert-tags-header
+    magit-insert-unpushed-to-upstream-or-recent
+    magit-insert-unpulled-from-upstream
+    magit-insert-unpulled-from-pushremote
+    magit-insert-modules)
+  "Expensive status sections disabled by `magit-quick-mode'.")
+
+(define-minor-mode magit-quick-mode
+  "Global minor mode that makes Magit lean for repos with huge diffs.
+Collapses the diff sections, turns off expensive diff painting, drops
+the costly status sections, and stops auto-refreshing the status
+buffer.  Turning the mode off restores whatever the values were before."
+  :global t :lighter " MagitQuick"
+  (require 'magit)
+  (if magit-quick-mode
+      (progn
+        ;; remember current values (copy lists so remove-hook can't mutate them)
+        (setq magit-quick--saved
+              (mapcar (lambda (v)
+                        (cons v (let ((val (symbol-value v)))
+                                  (if (listp val) (copy-sequence val) val))))
+                      '(magit-section-initial-visibility-alist
+                        magit-diff-refine-hunk
+                        magit-diff-paint-whitespace
+                        magit-diff-highlight-trailing
+                        magit-diff-highlight-indentation
+                        magit-refresh-status-buffer
+                        magit-status-sections-hook)))
+        ;; apply the lean values
+        (setq magit-section-initial-visibility-alist
+              '((unstaged . hide) (staged . hide) (stashes . hide)
+                (unpushed . hide) (unpulled . hide))
+              magit-diff-refine-hunk nil
+              magit-diff-paint-whitespace nil
+              magit-diff-highlight-trailing nil
+              magit-diff-highlight-indentation nil
+              magit-refresh-status-buffer nil)
+        (dolist (fn magit-quick--heavy-sections)
+          (remove-hook 'magit-status-sections-hook fn)))
+    ;; disable: put everything back exactly as it was
+    (dolist (cell magit-quick--saved)
+      (set (car cell) (cdr cell)))
+    (setq magit-quick--saved nil))
+  ;; reflect the change in any open Magit buffers right away
+  (when (fboundp 'magit-refresh-all)
+    (ignore-errors (magit-refresh-all)))
+  (when (called-interactively-p 'any)
+    (message "Magit quick mode %s" (if magit-quick-mode "ON" "OFF"))))
+
+(defun magit-quick-mode-on ()
+  "Turn `magit-quick-mode' on."
+  (interactive) (magit-quick-mode 1))
+
+(defun magit-quick-mode-off ()
+  "Turn `magit-quick-mode' off."
+  (interactive) (magit-quick-mode -1))
+
+(defalias 'magit-run-lean 'magit-quick-mode-on)
