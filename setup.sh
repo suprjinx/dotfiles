@@ -54,14 +54,25 @@ brew install \
     tmuxinator \
     dagger \
     fresh-editor \
-    claude-code
+    claude-code \
+    net-tools
 
-# Docker daemon (skip if Docker Desktop is providing the CLI)
-if ! command -v docker &> /dev/null; then
-    sudo apt install docker.io docker-compose-v2
+# Docker
+if command -v docker &> /dev/null; then
+    if docker info 2>&1 | grep -qE "Docker Desktop|OrbStack"; then
+        echo "Docker Desktop/OrbStack detected, skipping Docker Engine install"
+    fi
+elif [ "$(uname -s)" = "Darwin" ]; then
+    # macOS: install OrbStack, which provides a real docker/docker compose CLI.
+    echo "Installing OrbStack (Docker engine + CLI for macOS)..."
+    brew install --cask orbstack
+    echo "Launch OrbStack once to start the Docker engine: open -a OrbStack"
+elif [ -f /etc/debian_version ]; then
+    # Linux (Debian/Ubuntu): install the Docker engine from apt.
+    sudo apt install -y docker.io docker-compose-v2
     sudo usermod -aG docker "$USER"
-elif docker info 2>&1 | grep -q "Docker Desktop"; then
-    echo "Docker Desktop detected, skipping Docker Engine install"
+else
+    echo "No docker found and no known installer for this OS; install Docker manually." >&2
 fi
 
 # Go tools
