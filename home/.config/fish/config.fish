@@ -12,3 +12,4 @@ for brew_path in /home/linuxbrew/.linuxbrew/bin/brew /opt/homebrew/bin/brew /usr
         break
     end
 end
+export PATH="$HOME/.local/bin:$PATH"
