@@ -33,3 +33,15 @@
   (define-key go-mode-map (kbd "C-c , b") 'go-test-current-benchmark)
   (define-key go-mode-map (kbd "C-c C-c") 'go-run)
   )
+
+;; In any Magit diff, visit the real file in the working tree, at the
+;; corresponding line.  RET already does this for unstaged hunks; for
+;; staged hunks and commit diffs it opens a read-only blob buffer
+;; ("my/file.go.~018765~") instead.  S-RET always visits the worktree
+;; file, which is what magit binds C-RET to.
+(with-eval-after-load 'magit-diff
+  (define-key magit-diff-section-map (kbd "S-<return>") 'magit-diff-visit-worktree-file))
+
+;; Same key from inside a blob buffer: jump to the real file, same line.
+(with-eval-after-load 'magit-files
+  (define-key magit-blob-mode-map (kbd "S-<return>") 'magit-blob-visit-file))
