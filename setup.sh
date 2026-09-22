@@ -55,7 +55,10 @@ brew install \
     dagger \
     fresh-editor \
     claude-code \
-    net-tools
+    net-tools \
+    helm \
+    k3d \
+    kubernetes-cli
 
 # Docker
 if command -v docker &> /dev/null; then
