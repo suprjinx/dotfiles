@@ -40,8 +40,4 @@ for brew_path in /home/linuxbrew/.linuxbrew/bin/brew /opt/homebrew/bin/brew /usr
         break
     end
 end
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/gwilson/.lmstudio/bin
-# End of LM Studio CLI section
-
+export PATH="$HOME/.local/bin:$PATH"
